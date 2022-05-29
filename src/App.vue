@@ -1,20 +1,13 @@
 <script>
 export default {
-    data() {
+    data(){
         return {
-            number:0,
-            items:[1,2,3],
-            color:""
+            count:0
         }
     },
     methods: {
-        countup(){
-            this.number = this.number + 1
-        }
-    },
-    computed: {
-        custom_color(){
-            return this.color.toUpperCase();
+        countincrement(){
+            this.count = this.count + 1
         }
     }
 }
@@ -22,26 +15,7 @@ export default {
 
 <template>
 <div>
-    <h1>{{number}}</h1>
-    <button @click="countup">countup</button>
-    <p v-if="number">0以上</p>
-    <p v-else>0</p>
-    <ul>
-        <li v-for="(item,index) in items" :key="index">{{item}}</li>
-    </ul>
-    <p :class="color">カラー</p>
-    <input type="text" v-model="color">
-    <p>{{custom_color}}</p>
+    <h1>{{count}}回クリックされました</h1>
+    <button @click="countincrement">increment</button>
 </div>
 </template>
-<style>
-.red {
-    color: red;
-}
-.green {
-    color: green;
-}
-.blue {
-    color: blue;
-}
-</style>
