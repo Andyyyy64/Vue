@@ -2,20 +2,19 @@
 export default {
     data(){
         return {
-            count:0
+            items:[1,2,3],
+            show: true
         }
     },
-    methods: {
-        countincrement(){
-            this.count = this.count + 1
-        }
-    }
 }
 </script>
 
 <template>
 <div>
-    <h1>{{count}}回クリックされました</h1>
-    <button @click="countincrement">increment</button>
+    <button @click="show = !show">togglelist</button>
+    <ul v-if="show">
+        <li v-for="(item,index) in items" :key="index">{{item}}</li>
+    </ul>
+    <p v-else>list is not empty but hidden</p>
 </div>
 </template>
