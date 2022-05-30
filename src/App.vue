@@ -22,6 +22,20 @@ export default {
                 return !todo.isChecked;
             });
         }
+    },
+    computed: {
+        remaining(){
+            conut = 0;
+            todos = this.list;
+            length = todos.length;
+            for(i = 0; i<length; i++){
+                if(!todos[i].isChecked){
+                    count++;
+                }
+            }
+            return count;
+        }
+        
     }
 }
 </script>
