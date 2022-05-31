@@ -26,13 +26,14 @@ export default {
             var filtered=[];
             for(var i in this.list){
                 var list = this.list[i];
-                var text = this.addText
+                var text = text.addText;
                 if(list.text.indexOf(this.keyword) !== -1) {
                     filtered.push(list);
                 }
             }
             return filtered;
-        }
+        },
+        
     },
     computed: {
         remaining(){
@@ -53,7 +54,6 @@ export default {
     }
 }
 </script>
-
 <template>
 <div class="container">
     <div>残タスク:{{remaining}}/{{list.length}}</div>
@@ -84,3 +84,5 @@ export default {
     </div>
 </div>
 </template>
+<style>
+</style>
