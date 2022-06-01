@@ -40,7 +40,7 @@ export default{
 
 <template>
 <div class="container">
-    <div>残りタスク:{{remaining}}/{{list.length}}
+    <div class="task mr-10">残りタスク:{{remaining}}/{{list.length}}
     </div>
     <input class="mr-10 mb-10 mt-10" type="text" v-model="addText" placeholder="ToDoを入力して">
     <button class="add mr-10"  @click="addtodo">追加</button>
@@ -49,21 +49,40 @@ export default{
         <ul v-for="(todo,index) in list" :key="index">
             <li>
                 <span :class="{done:todo.isChecked}">
-                <input type="checkbox" v-model="todo.isChecked">{{todo.text}}
+                <input  type="checkbox" v-model="todo.isChecked">{{todo.text}}
                 </span>
             </li>
         </ul>
     </div>
-    <div v-else>現在のタスクはありません</div>
+    <div v-else style="color:red;">現在のタスクはありません</div>
 </div>
 </template>
 <style>
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+}
+.todo.text{
+    color: blue;
+}
+.task{
+    
+    display: inline-block;
+    filter: drop-shadow(1px 1px 3px red);
+}
 ul{
     list-style: none;
 }
+li{
+    color: azure;
+}
 .container{
-    margin: 0 auto;
+
     text-align: center;
+    background-color: green;
+    
+
 }
 .add{
     color:blue;
